@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HD Food Order - View Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        
+        body{
+    background-color: #c9d6ff;
+    background:linear-gradient(to right,#e2e2e2,#c9d6ff);
+    
+    
+}
+        /* Your existing styles here */
+        .grid-order {
+            margin-bottom: 200px;
+        }
+
+        .headtiff {
+            font: bold;
+            font-style: oblique;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .product-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .product-image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .item-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .item-quantity {
+            width: 50px;
+            padding: 5px;
+            margin-left: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .add-to-cart {
+            background-color: #FF8C00;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .add-to-cart:hover {
+            background-color: #E77F00;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .nav-bar {
+            background-color: #FF8C00;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-bar li {
+            margin: 0 15px;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-bar a:hover {
+            text-decoration: underline;
+        }
+
+        #meal-options {
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            width: 200px;
+        
+        }
+
+        .hidden {
+            display: none;
+        }
+        .welcome-section{
+            text-align: center;
+            
+            
+        }
+        .meal-selection{
+            text-align: center;
+            font-size: x-large;
+            padding-top: 40px;
+        }
+
+        .fav{
+            text-align: center;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .nav-bar {
+            background-color:#4f4fc3;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .nav-bar a:hover {
+            text-decoration: underline;
+        }
+
+        .cart-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-total {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .checkout-button {
+            display: block;
+            margin: 20px auto;
+            background-color: #FF8C00;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .checkout-button:hover {
+            background-color: #E77F00;
+        }
+    </style>
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <span id="userName">Welcome to HD Food Order</span>
+        <ul>
+            <li><a href="cart.html" id="cart"><i class="fas fa-shopping-cart"></i> Cart-Items</a></li>
+            <li><a href="#" id="profile"><i class="fas fa-user"></i> User Profile</a></li>
+            
+            <li><a href="#" id="logoutButton">Logout</a></li>
+            <li><a href="order-summary.html" id="order"><i class="fas fa-shopping-bag"></i> My Order</a></li>
+        </ul>
+    </div>
+    <div id="cart-message" class="hidden" style="color: green; text-align: center; margin-top: 10px;"></div>
+
+    
+
+    <!-- Cart Items -->
+    
+
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+        <h1>Welcome to HD Food Order</h1>
+        <p> "Craving satisfied, one click away.
+            Delicious moments start here!"</p>
+    </div>
+
+    <!-- Meal Selection Dropdown -->
+    <div class="meal-selection">
+        <label for="meal-options"><strong>View Product:</strong></label>
+        <select id="meal-options" name="meal-options">
+            <option value="" disabled selected>Choose a category</option>
+            <option value="tiffin">Tiffin</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+        </select>
+    </div>
+
+    <h5 class="fav">"Choose your favorite, savor the flavor, and enjoy the moments"</h5>
+
+    <!-- Food Items -->
+    <div id="foodItems">
+        <div id="tiffin" class="grid-order hidden">
+            <h1 class="headtiff">TIFFEN-TO-GO</h1>
+            <!-- Tiffin Products -->
+            <div class="product-item" data-price="50">
+                <img src="dosai.jpg" alt="DOSAI" class="product-image">
+                <span class="item-name">DOSAI</span>
+                <span class="price">Price:50/-</span>
+                <input type="number" value="1" class="item-quantity">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-price="20" >
+                
+                <img src="idly.jpg" alt="IDLY" class="product-image">
+                <span class="item-name">IDLY</span>
+                <span class="price">Price:20/-</span>
+                <input type="number" value="1" class="item-quantity">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-price="40">
+                <img src="poori.jpg" alt="POORI" class="product-image">
+                <span class="item-name">POORI</span>
+                <span class="price">Price:40/-</span>
+                <input type="number" value="1" class="item-quantity">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-price="60">
+                <img src="pongal.jpg" alt="PONGAL" class="product-image">
+                <span class="item-name">PONGAL</span>
+                <span class="price">Price:60/-</span>
+                <input type="number" value="1" class="item-quantity">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+                
+    
+           
+    
+        </div>
+
+        <div id="lunch" class="grid-order hidden">
+            <h1 class="headtiff">LUNCHEER</h1>
+            <!-- Lunch Products -->
+            <div class="product-item" data-price="30">
+                <img src="curd rice.jpg" alt="CURDRICE" class="product-image">
+                <span class="item-name">CURDRICE</span>
+                <span class="price">Price:30/-</span>
+                <input type="number" value="1" class="item-quantity">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-price="45">
+                <img src="sambar rice.jpg" alt="SAMBARRICE" class="product-image">
+                <span class="item-name">SAMBARRICE</span>
+                <span class="price">Price:45/-</span>
+                <input type="number" value="1" class="item-quantity">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-price="160">
+                <img src="nlunch.jpg" alt="NLUNCH" class="product-image">
+                <span class="item-name">NORTH-INDIAN-MEAL</span>
+                <span class="price">Price:160/-</span>
+                <input type="number" value="1" class="item-quantity">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-price="120">
+                <img src="slunch.jpg" alt="SLUNCH" class="product-image">
+                <span class="item-name">SOUTH-INDIAN-MEAL</span>
+                <span class="price">Price:120/-</span>
+                <input type="number" value="1" class="item-quantity">
+                <button class="add-to-cart">Add to Cart</button>
+            
+             </div>
+
+        </div>
+
+        <div id="dinner" class="grid-order hidden">
+            <h1 class="headtiff">DELIGHTFULL-DINNER</h1>
+            <!-- Dinner Products -->
+            <div class="product-item" data-price="40">
+                <img src="chappathi.jpg" alt="CHAPPATHI" class="product-image">
+                <span class="item-name">CHAPPATHI</span>
+                <span class="price">Price:40/-</span>
+                <input type="number" value="1" class="item-quantity">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-price="75">
+                <img src="fried rice.jpg" alt="FRIEDRICE" class="product-image">
+                <span class="item-name">FRIEDRICE</span>
+                <span class="price">Price:75/-</span>
+                <input type="number" value="1" class="item-quantity">
+                <button class="add-to-cart">Add to Cart</button>
+            
+
+            </div>
+            <div class="product-item" data-price="80">
+                <img src="noodles_food.jpg" alt="NOODLES" class="product-image">
+                <span class="item-name">NOODLES</span>
+                <span class="price">Price:80/-</span>
+                <input type="number" value="1" class="item-quantity">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-item" data-price="30">
+                <img src="parotta.jpg" alt="PAROTTA" class="product-image">
+                <span class="item-name">PAROTTA</span>
+                <span class="price">Price:30/-</span>
+                <input type="number" value="1" class="item-quantity">
+                <button class="add-to-cart">Add to Cart</button>
+                
+            </div>
+    
+        </div>
+
+        
+    
+    </div>
+
+    <script>
+        
+
+
+
+// JavaScript to handle category selection
+document.getElementById('meal-options').addEventListener('change', function () {
+    const selectedValue = this.value;
+
+    // Hide all categories
+    document.querySelectorAll('.grid-order').forEach(category => {
+        category.classList.add('hidden');
+    });
+
+    // Show the selected category
+    if (selectedValue) {
+        document.getElementById(selectedValue).classList.remove('hidden');
+    }
+});
+
+// Add to Cart functionality
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function () {
+        const parent = this.parentElement;
+        const itemName = parent.querySelector('.item-name').textContent;
+        const itemQuantity = parseInt(parent.querySelector('.item-quantity').value);
+        const itemPrice = parseFloat(parent.getAttribute('data-price'));
+        const itemImage = parent.querySelector('img').src;
+
+        // Retrieve existing cart items from localStorage or create a new array
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Check if the item already exists in the cart
+        const existingItem = cart.find(item => item.name === itemName);
+        if (existingItem) {
+            existingItem.quantity += itemQuantity;
+        } else {
+            // Add new item to the cart
+            cart.push({
+                name: itemName,
+                quantity: itemQuantity,
+                price: itemPrice,
+                image: itemImage
+            });
+        }
+
+        // Save updated cart back to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Show an alert or message to the user
+        alert(`${itemQuantity} x ${itemName} has been added to your cart!`);
+    });
+});
+
+
+       
+
+
+
+
+        
+
+       
+
+        </script>
+</body>
+</html>

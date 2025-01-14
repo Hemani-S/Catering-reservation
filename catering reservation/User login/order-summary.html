@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .order-summary-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-summary-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .order-items {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .order-total {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="order-summary-container">
+        <div class="order-summary-title">MY ORDERS</div>
+        <div class="order-items" id="order-items"></div>
+        <div class="order-total" id="order-total">Total: $0</div>
+    </div>
+
+    <script>
+       
+
+        // Load order details from localStorage
+        function loadOrderSummary() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const orderItemsContainer = document.getElementById('order-items');
+            const orderTotal = document.getElementById('order-total');
+
+            orderItemsContainer.innerHTML = ''; // Clear previous items
+            let total = 0;
+
+            cart.forEach(item => {
+                const orderItem = document.createElement('div');
+                orderItem.classList.add('order-item');
+
+                orderItem.innerHTML = `
+                    <span>${item.quantity} x ${item.name}</span>
+                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                `;
+
+                total += item.price * item.quantity;
+                orderItemsContainer.appendChild(orderItem);
+            });
+
+            orderTotal.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Initialize the page
+        loadOrderSummary();
+    </script>
+</body>
+</html>
